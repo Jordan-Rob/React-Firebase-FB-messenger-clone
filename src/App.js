@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   const [ input, setInput ] = useState('');
-  const [ messages, setMessages ] = useState([]);
+  const [ messages, setMessages ] = useState([ { username: 'jay', text:'Wassup' }, { username:'Sonny' , text:'Hey guys' } ]);
   const [ username, setUsername ] = useState('')
 
   useEffect(() =>{
@@ -18,8 +18,8 @@ function App() {
 
   const sendMessage = (event) => {
     event.preventDefault()
-    setMessages([...messages, input])
-    setInput('')
+    setMessages([...messages, { username: username, text: input }])
+    setInput('') 
   }
 
   return (
@@ -38,7 +38,7 @@ function App() {
 
       {
         messages.map(message => (
-        <Message text={message} ></Message>
+        <Message username={ username } message={ message } ></Message>
         ))
       }
 
