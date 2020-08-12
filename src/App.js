@@ -4,6 +4,7 @@ import { Button } from '@material-ui/core';
 import Message from "./Message";
 import db from './firebase'
 import firebase from 'firebase'
+import FlipMove from 'react-flip-move'
 import './App.css';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   useEffect(() => {
     //run once when app component loads
     db.collection('messages').orderBy('timestamp', 'asc').onSnapshot( snapshot => {
-      setMessages(snapshot.docs.map( doc => doc.data()))
+      setMessages(snapshot.docs.map( doc => ({id:doc.id, message:doc.data()})))
     })
   }, [])
 
@@ -33,16 +34,16 @@ function App() {
       username:username,
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
     })
-
-    setMessages([...messages, { username: username, text: input }])
     setInput('') 
   }
 
   return (
     <div className="App">
-
+      <img src='https://res.cloudinary.com/dbureb5gj/image/upload/v1597249294/Messenger_Logo_Color_RGB_q5jvt3.svg' style={{ marginTop: '100px', height:'120px' }} />
       <h2>Welcome {username}</h2>
-
+      
+      <form className="App_form">
+        
       <FormControl>
         <InputLabel >Enter message</InputLabel>
         <Input value={ input } onChange={ event => setInput(event.target.value) } />
@@ -50,13 +51,16 @@ function App() {
       </FormControl>
 
       
-    
+      </form>
 
+      <FlipMove>
       {
-        messages.map(message => (
-        <Message username={ username } message={ message } ></Message>
+        messages.map( ({id, message}) => (
+        <Message key={id} username={ username } message={ message } ></Message>
         ))
       }
+      </FlipMove>
+
 
 
     </div>
