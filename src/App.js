@@ -5,6 +5,9 @@ import Message from "./Message";
 import db from './firebase'
 import firebase from 'firebase'
 import FlipMove from 'react-flip-move'
+import SendIcon from '@material-ui/icons/Send';
+import { IconButton } from '@material-ui/core';
+
 import './App.css';
 
 function App() {
@@ -44,16 +47,21 @@ function App() {
       
       <form className="App_form">
         
-      <FormControl>
-        <InputLabel >Enter message</InputLabel>
-        <Input value={ input } onChange={ event => setInput(event.target.value) } />
-        <Button variant="contained" color="primary" type='submit' disabled={!input} onClick={ sendMessage } >Send</Button> 
+      <FormControl className='App_formControl'>
+  
+        <Input className="App_input"  placeholder='Enter a  message...' value={ input } onChange={ event => setInput(event.target.value) } />
+
+        <IconButton className="App_iconButton"  variant="contained" color="primary" type='submit' disabled={!input} onClick={ sendMessage } >
+          <SendIcon />
+        </IconButton>
+
+        
       </FormControl>
 
       
       </form>
 
-      <FlipMove>
+      <FlipMove className='App_flipMove'>
       {
         messages.map( ({id, message}) => (
         <Message key={id} username={ username } message={ message } ></Message>

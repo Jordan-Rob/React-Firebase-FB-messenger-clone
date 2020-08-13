@@ -8,6 +8,24 @@
   bottom: 0;
   z-index: 1;
   background-color: #e9e9eb;
-  width: 100%;
-  margin: 20px;
+  width: 90%;
+  margin: 40px ;
+  
+}
+
+.App_formControl{
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.App_input{
+  flex: 1;
+}
+
+.App_iconButton{
+  flex: 0;
+}
+
+.App_flipMove{
+  margin-bottom: 150px;
 }
