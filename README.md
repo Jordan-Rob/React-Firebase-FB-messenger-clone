@@ -1,6 +1,7 @@
 Simple Clone of fb messenger to practice
 React concepts especially React Hooks as well as
 experimenting with Firebase real time database and Material UI
+Live App is found here https://frosty-yalow-19911a.netlify.app/
 
 Fork repo and run:
 `git clone <forked repo>`
