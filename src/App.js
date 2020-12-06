@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FormControl, InputLabel, Input, FormHelperText} from '@material-ui/core';
-import { Button } from '@material-ui/core';
+import { FormControl, Input} from '@material-ui/core';
 import Message from "./Message";
 import db from './firebase'
 import firebase from 'firebase'
@@ -42,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <img src='https://res.cloudinary.com/dbureb5gj/image/upload/v1597249294/Messenger_Logo_Color_RGB_q5jvt3.svg' style={{ marginTop: '100px', height:'120px' }} />
+      <img src='https://res.cloudinary.com/dbureb5gj/image/upload/v1597249294/Messenger_Logo_Color_RGB_q5jvt3.svg' style={{ marginTop: '100px', height:'120px' }} alt ='' />
       <h2>Welcome {username}</h2>
       
       <form className="App_form">
